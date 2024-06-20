@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.1 on win32)" generated="2024-02-02T13:23:43.429303" rpa="false" schemaversion="5">
+<suite id="s1" name="Signup" source="C:\QAx\projects\smartbit-robot\tests\signup.robot">
+<test id="s1-t1" name="Deve iniciar o cadastro do cliente" line="10">
+<kw name="Get Fake Account" owner="Account">
+<msg time="2024-02-02T13:23:45.351076" level="INFO">${account} = {'name': 'Srta. Luana Dias', 'email': 'benicioduarte@example.org', 'document': '271.649.583-19'}</msg>
+<var>${account}</var>
+<status status="PASS" start="2024-02-02T13:23:45.351076" elapsed="0.000000"/>
+</kw>
+<kw name="New Browser" owner="Browser">
+<msg time="2024-02-02T13:23:45.352077" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\QAx\\projects\\smartbit-robot\\browser\\traces\\93730dfa-6770-4e70-972a-7bb6b7293304"}</msg>
+<msg time="2024-02-02T13:23:47.050924" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\QAx\\projects\\smartbit-robot\\browser\\traces\\93730dfa-6770-4e70-972a-7bb6b7293304"}</msg>
+<arg>browser=chromium</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2024-02-02T13:23:45.352077" elapsed="1.698847"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2024-02-02T13:23:48.788522" level="INFO">Successfully initialized new page object and opened url: http://localhost:3000</msg>
+<msg time="2024-02-02T13:23:48.788522" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>http://localhost:3000</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2024-02-02T13:23:47.051921" elapsed="1.736601"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2024-02-02T13:23:48.865915" level="INFO">Text: 'Faça seu cadastro e venha para a Smartbit!'</msg>
+<arg>css=#signup h2</arg>
+<arg>equal</arg>
+<arg>Faça seu cadastro e venha para a Smartbit!</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:23:48.788522" elapsed="0.077393"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-02-02T13:23:48.866913" level="INFO">Fills the text 'Srta. Luana Dias' in the given field.</msg>
+<arg>id=name</arg>
+<arg>${account}[name]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:23:48.866913" elapsed="0.037003"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-02-02T13:23:48.905917" level="INFO">Fills the text 'benicioduarte@example.org' in the given field.</msg>
+<arg>id=email</arg>
+<arg>${account}[email]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:23:48.904915" elapsed="0.033002"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-02-02T13:23:48.938917" level="INFO">Fills the text '271.649.583-19' in the given field.</msg>
+<arg>id=document</arg>
+<arg>${account}[document]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:23:48.937917" elapsed="0.023997"/>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>css=button &gt;&gt; text=Cadastrar</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:23:48.961914" elapsed="0.087350"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2024-02-02T13:23:51.992513" level="INFO">Waited for Element with selector text=Falta pouco para fazer parte da família Smartbit! at state visible</msg>
+<arg>text=Falta pouco para fazer parte da família Smartbit!</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2024-02-02T13:23:49.049264" elapsed="2.943249"/>
+</kw>
+<status status="PASS" start="2024-02-02T13:23:45.347078" elapsed="6.647433"/>
+</test>
+<test id="s1-t2" name="Campo nome deve ser obrigatório" line="35">
+<kw name="New Browser" owner="Browser">
+<msg time="2024-02-02T13:23:52.127128" level="INFO">Switching browser to browser=7e1a5dc5-abbe-4c22-a785-b07f2e0cc290</msg>
+<msg time="2024-02-02T13:23:52.134113" level="INFO">Successfully changed active browser: browser=7e1a5dc5-abbe-4c22-a785-b07f2e0cc290</msg>
+<msg time="2024-02-02T13:23:52.134113" level="INFO">Reusing existing browser with id: browser=7e1a5dc5-abbe-4c22-a785-b07f2e0cc290</msg>
+<arg>browser=chromium</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2024-02-02T13:23:52.125114" elapsed="0.009999"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2024-02-02T13:23:54.880385" level="INFO">Successfully initialized new page object and opened url: http://localhost:3000</msg>
+<msg time="2024-02-02T13:23:54.880385" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>http://localhost:3000</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2024-02-02T13:23:52.135113" elapsed="2.745272"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2024-02-02T13:23:54.952380" level="INFO">Text: 'Faça seu cadastro e venha para a Smartbit!'</msg>
+<arg>css=#signup h2</arg>
+<arg>equal</arg>
+<arg>Faça seu cadastro e venha para a Smartbit!</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:23:54.881381" elapsed="0.070999"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-02-02T13:23:54.953381" level="INFO">Fills the text 'casito@teste.com' in the given field.</msg>
+<arg>id=email</arg>
+<arg>casito@teste.com</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:23:54.953381" elapsed="0.021000"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-02-02T13:23:54.975432" level="INFO">Fills the text '22318672067' in the given field.</msg>
+<arg>id=document</arg>
+<arg>22318672067</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:23:54.974381" elapsed="0.023726"/>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>css=button &gt;&gt; text=Cadastrar</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:23:54.998107" elapsed="0.076015"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2024-02-02T13:23:55.393960" level="INFO">Waited for Element with selector css=form .notice at state visible</msg>
+<arg>css=form .notice</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2024-02-02T13:23:55.075145" elapsed="0.318815"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2024-02-02T13:23:55.414665" level="INFO">Text: 'Por favor informe o seu nome completo'</msg>
+<arg>css=form .notice</arg>
+<arg>equal</arg>
+<arg>Por favor informe o seu nome completo</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:23:55.394959" elapsed="0.019706"/>
+</kw>
+<tag>required</tag>
+<status status="PASS" start="2024-02-02T13:23:52.119123" elapsed="3.296539"/>
+</test>
+<test id="s1-t3" name="Campo email deve ser obrigatório" line="57">
+<kw name="New Browser" owner="Browser">
+<msg time="2024-02-02T13:23:55.501808" level="INFO">Switching browser to browser=7e1a5dc5-abbe-4c22-a785-b07f2e0cc290</msg>
+<msg time="2024-02-02T13:23:55.505809" level="INFO">Successfully changed active browser: browser=7e1a5dc5-abbe-4c22-a785-b07f2e0cc290</msg>
+<msg time="2024-02-02T13:23:55.505809" level="INFO">Reusing existing browser with id: browser=7e1a5dc5-abbe-4c22-a785-b07f2e0cc290</msg>
+<arg>browser=chromium</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2024-02-02T13:23:55.500810" elapsed="0.004999"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2024-02-02T13:23:57.223500" level="INFO">Successfully initialized new page object and opened url: http://localhost:3000</msg>
+<msg time="2024-02-02T13:23:57.223500" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>http://localhost:3000</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2024-02-02T13:23:55.505809" elapsed="1.717691"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2024-02-02T13:23:57.291494" level="INFO">Text: 'Faça seu cadastro e venha para a Smartbit!'</msg>
+<arg>css=#signup h2</arg>
+<arg>equal</arg>
+<arg>Faça seu cadastro e venha para a Smartbit!</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:23:57.224496" elapsed="0.066998"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-02-02T13:23:57.292496" level="INFO">Fills the text 'casito' in the given field.</msg>
+<arg>id=name</arg>
+<arg>casito</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:23:57.292496" elapsed="0.020001"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-02-02T13:23:57.313499" level="INFO">Fills the text '22318672067' in the given field.</msg>
+<arg>id=document</arg>
+<arg>22318672067</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:23:57.312497" elapsed="0.024712"/>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>css=button &gt;&gt; text=Cadastrar</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:23:57.337209" elapsed="0.065995"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2024-02-02T13:23:57.718964" level="INFO">Waited for Element with selector css=form .notice at state visible</msg>
+<arg>css=form .notice</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2024-02-02T13:23:57.404241" elapsed="0.315725"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2024-02-02T13:23:57.739402" level="INFO">Text: 'Por favor, informe o seu melhor e-mail'</msg>
+<arg>css=form .notice</arg>
+<arg>equal</arg>
+<arg>Por favor, informe o seu melhor e-mail</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:23:57.719966" elapsed="0.019436"/>
+</kw>
+<tag>required</tag>
+<status status="PASS" start="2024-02-02T13:23:55.495808" elapsed="2.244596"/>
+</test>
+<test id="s1-t4" name="Campo cpf deve ser obrigatório" line="80">
+<kw name="New Browser" owner="Browser">
+<msg time="2024-02-02T13:23:57.837415" level="INFO">Switching browser to browser=7e1a5dc5-abbe-4c22-a785-b07f2e0cc290</msg>
+<msg time="2024-02-02T13:23:57.841416" level="INFO">Successfully changed active browser: browser=7e1a5dc5-abbe-4c22-a785-b07f2e0cc290</msg>
+<msg time="2024-02-02T13:23:57.841416" level="INFO">Reusing existing browser with id: browser=7e1a5dc5-abbe-4c22-a785-b07f2e0cc290</msg>
+<arg>browser=chromium</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2024-02-02T13:23:57.835407" elapsed="0.006009"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2024-02-02T13:23:59.550257" level="INFO">Successfully initialized new page object and opened url: http://localhost:3000</msg>
+<msg time="2024-02-02T13:23:59.550257" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>http://localhost:3000</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2024-02-02T13:23:57.842403" elapsed="1.707854"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2024-02-02T13:23:59.612254" level="INFO">Text: 'Faça seu cadastro e venha para a Smartbit!'</msg>
+<arg>css=#signup h2</arg>
+<arg>equal</arg>
+<arg>Faça seu cadastro e venha para a Smartbit!</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:23:59.551276" elapsed="0.060978"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-02-02T13:23:59.613253" level="INFO">Fills the text 'casito' in the given field.</msg>
+<arg>id=name</arg>
+<arg>casito</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:23:59.612254" elapsed="0.023998"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-02-02T13:23:59.637251" level="INFO">Fills the text 'casito@gmail.com' in the given field.</msg>
+<arg>id=email</arg>
+<arg>casito@gmail.com</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:23:59.637251" elapsed="0.026007"/>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>css=button &gt;&gt; text=Cadastrar</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:23:59.665264" elapsed="0.063990"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2024-02-02T13:24:00.063605" level="INFO">Waited for Element with selector css=form .notice at state visible</msg>
+<arg>css=form .notice</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2024-02-02T13:23:59.730256" elapsed="0.333349"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2024-02-02T13:24:00.086596" level="INFO">Text: 'Por favor, informe o seu CPF'</msg>
+<arg>css=form .notice</arg>
+<arg>equal</arg>
+<arg>Por favor, informe o seu CPF</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:24:00.064596" elapsed="0.022000"/>
+</kw>
+<tag>required</tag>
+<status status="PASS" start="2024-02-02T13:23:57.829404" elapsed="2.258195"/>
+</test>
+<test id="s1-t5" name="Email no formato invalido" line="102">
+<kw name="New Browser" owner="Browser">
+<msg time="2024-02-02T13:24:00.190953" level="INFO">Switching browser to browser=7e1a5dc5-abbe-4c22-a785-b07f2e0cc290</msg>
+<msg time="2024-02-02T13:24:00.193953" level="INFO">Successfully changed active browser: browser=7e1a5dc5-abbe-4c22-a785-b07f2e0cc290</msg>
+<msg time="2024-02-02T13:24:00.193953" level="INFO">Reusing existing browser with id: browser=7e1a5dc5-abbe-4c22-a785-b07f2e0cc290</msg>
+<arg>browser=chromium</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2024-02-02T13:24:00.189956" elapsed="0.003997"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2024-02-02T13:24:00.862911" level="INFO">Successfully initialized new page object and opened url: http://localhost:3000</msg>
+<msg time="2024-02-02T13:24:00.862911" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>http://localhost:3000</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2024-02-02T13:24:00.194960" elapsed="0.667951"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2024-02-02T13:24:00.926904" level="INFO">Text: 'Faça seu cadastro e venha para a Smartbit!'</msg>
+<arg>css=#signup h2</arg>
+<arg>equal</arg>
+<arg>Faça seu cadastro e venha para a Smartbit!</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:24:00.863905" elapsed="0.062999"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-02-02T13:24:00.928902" level="INFO">Fills the text 'casito' in the given field.</msg>
+<arg>id=name</arg>
+<arg>casito</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:24:00.927905" elapsed="0.022998"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-02-02T13:24:00.951907" level="INFO">Fills the text 'casito*gmail.com' in the given field.</msg>
+<arg>id=email</arg>
+<arg>casito*gmail.com</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:24:00.951907" elapsed="0.019997"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-02-02T13:24:00.972903" level="INFO">Fills the text '22318672067' in the given field.</msg>
+<arg>id=document</arg>
+<arg>22318672067</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:24:00.972903" elapsed="0.019001"/>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>css=button &gt;&gt; text=Cadastrar</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:24:00.992904" elapsed="0.071716"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2024-02-02T13:24:01.393172" level="INFO">Waited for Element with selector css=form .notice at state visible</msg>
+<arg>css=form .notice</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2024-02-02T13:24:01.064620" elapsed="0.328552"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2024-02-02T13:24:01.414169" level="INFO">Text: 'Oops! O email informado é inválido'</msg>
+<arg>css=form .notice</arg>
+<arg>equal</arg>
+<arg>Oops! O email informado é inválido</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:24:01.394170" elapsed="0.019999"/>
+</kw>
+<tag>inv</tag>
+<status status="PASS" start="2024-02-02T13:24:00.186955" elapsed="1.228216"/>
+</test>
+<test id="s1-t6" name="Cpf no formato inválido" line="125">
+<kw name="New Browser" owner="Browser">
+<msg time="2024-02-02T13:24:01.502990" level="INFO">Switching browser to browser=7e1a5dc5-abbe-4c22-a785-b07f2e0cc290</msg>
+<msg time="2024-02-02T13:24:01.505986" level="INFO">Successfully changed active browser: browser=7e1a5dc5-abbe-4c22-a785-b07f2e0cc290</msg>
+<msg time="2024-02-02T13:24:01.505986" level="INFO">Reusing existing browser with id: browser=7e1a5dc5-abbe-4c22-a785-b07f2e0cc290</msg>
+<arg>browser=chromium</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2024-02-02T13:24:01.502990" elapsed="0.002996"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2024-02-02T13:24:02.289579" level="INFO">Successfully initialized new page object and opened url: http://localhost:3000</msg>
+<msg time="2024-02-02T13:24:02.289579" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>http://localhost:3000</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2024-02-02T13:24:01.506987" elapsed="0.782592"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2024-02-02T13:24:02.361506" level="INFO">Text: 'Faça seu cadastro e venha para a Smartbit!'</msg>
+<arg>css=#signup h2</arg>
+<arg>equal</arg>
+<arg>Faça seu cadastro e venha para a Smartbit!</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:24:02.290576" elapsed="0.070930"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-02-02T13:24:02.364513" level="INFO">Fills the text 'casito' in the given field.</msg>
+<arg>id=name</arg>
+<arg>casito</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:24:02.362508" elapsed="0.027000"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-02-02T13:24:02.390505" level="INFO">Fills the text 'casito@gmail.com' in the given field.</msg>
+<arg>id=email</arg>
+<arg>casito@gmail.com</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:24:02.390505" elapsed="0.034002"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2024-02-02T13:24:02.425505" level="INFO">Fills the text '2231867200a' in the given field.</msg>
+<arg>id=document</arg>
+<arg>2231867200a</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:24:02.424507" elapsed="0.023999"/>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>css=button &gt;&gt; text=Cadastrar</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:24:02.449506" elapsed="0.058996"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2024-02-02T13:24:02.829498" level="INFO">Waited for Element with selector css=form .notice at state visible</msg>
+<arg>css=form .notice</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2024-02-02T13:24:02.509506" elapsed="0.319992"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2024-02-02T13:24:02.854273" level="INFO">Text: 'Oops! O CPF informado é inválido'</msg>
+<arg>css=form .notice</arg>
+<arg>equal</arg>
+<arg>Oops! O CPF informado é inválido</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2024-02-02T13:24:02.830531" elapsed="0.023742"/>
+</kw>
+<tag>inv</tag>
+<status status="PASS" start="2024-02-02T13:24:01.493988" elapsed="1.361285"/>
+</test>
+<doc>Cenario de testes de pré cadastro de clientes</doc>
+<status status="PASS" start="2024-02-02T13:23:43.431276" elapsed="19.503001"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">inv</stat>
+<stat pass="3" fail="0" skip="0">required</stat>
+</tag>
+<suite>
+<stat pass="6" fail="0" skip="0" id="s1" name="Signup">Signup</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
